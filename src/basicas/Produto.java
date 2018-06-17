@@ -1,19 +1,29 @@
 package basicas;
 
-public class Produto {
+public abstract class Produto {
 
 	private String nome;
 	private double precoVenda;
 	private double precoCompra;
 	private int codigo;
-	private int estoque;
+	private boolean disponibilidade;
 	
-	public Produto(String nome, double precoCompra, double precoVenda, int codigo, int estoque) {
+	public Produto(String nome, double precoCompra, double precoVenda, int codigo, boolean disponibilidade) {
 		this.nome = nome;
 		this.precoCompra = precoCompra;
 		this.precoVenda = precoVenda;
 		this.codigo = codigo;
-		this.estoque = estoque;
+		this.disponibilidade = disponibilidade;
+	}
+	
+	public abstract void atualizarDisponibilidade(boolean disponibilidade);
+	
+	public boolean getDisponibilidade() {
+		return this.disponibilidade;
+	}
+
+	protected void setDisponibilidade(boolean disponibilidade) {
+		this.disponibilidade = disponibilidade;
 	}
 	
 	public String getNome() {
@@ -46,13 +56,5 @@ public class Produto {
 	
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
-	}
-
-	public int getEstoque() {
-		return this.estoque;
-	}
-
-	public void setEstoque(int estoque) {
-		this.estoque = estoque;
 	}
 }
