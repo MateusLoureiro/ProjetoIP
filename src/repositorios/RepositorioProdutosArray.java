@@ -27,16 +27,17 @@ public class RepositorioProdutosArray implements RepositorioProdutos {
 		}
 	}
 
-	public void atualizar(Produto produto) {
+	public void atualizar(Produto produto) throws ProdutoNaoEncontradoException {
 		// TODO Auto-generated method stub
-		
+		int atualizado = this.acharIndice(produto.getCodigo());
+		produtos[atualizado] = produto;
 	}
 
 	public void remover(int codigo) throws ProdutoNaoEncontradoException {
 		// TODO Auto-generated method stub
 		int indiceRemovido = this.acharIndice(codigo);
 		
-		for(int i = indiceRemovido; i < this.ultimoIndice - 1; i++) {
+		for(int i = indiceRemovido; i < this.ultimoIndice; i++) {
 			this.produtos[i] = this.produtos[i + 1];
 		}
 		
@@ -56,7 +57,7 @@ public class RepositorioProdutosArray implements RepositorioProdutos {
 		boolean achou = false;
 		int indiceProcurado = -1;
 		
-		for (int i = 0; i < ultimoIndice && !achou; i++) {
+		for (int i = 0; i <= ultimoIndice && !achou; i++) {
 			if(this.produtos[i].getCodigo() == codigo) {
 				indiceProcurado = i;
 				achou = true;
@@ -71,11 +72,25 @@ public class RepositorioProdutosArray implements RepositorioProdutos {
 	}
 	
 	public void aumentarArray() {
-		Produto[] novoArray = new Produto[tamanho * 2];
+		Produto[] novoArray;
 		
-		for(int i = 0; i < this.tamanho; i++) {
+		this.tamanho *= 2;
+		novoArray = new Produto[tamanho];
+		
+		for(int i = 0; i <= this.ultimoIndice; i++) {
 			novoArray[i] = this.produtos[i];
 		}
+		
 		this.produtos = novoArray;
+	}
+	
+	public void TESTARARRAY() {
+		
+		if (this.ultimoIndice == -1)
+			System.out.println("TA VAZIO");
+		
+		for (int i = 0; i <= this.ultimoIndice; i++) {
+			System.out.println(produtos[i].getNome());
+		}
 	}
 }

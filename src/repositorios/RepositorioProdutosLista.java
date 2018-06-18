@@ -28,7 +28,13 @@ public class RepositorioProdutosLista implements RepositorioProdutos {
 	@Override
 	public void atualizar(Produto produto) throws ProdutoNaoEncontradoException {
 		// TODO Auto-generated method stub
-
+		if (this.produto == null) {
+			throw new ProdutoNaoEncontradoException();
+		} else if (produto.getCodigo() == this.produto.getCodigo()) {
+			this.produto = produto;
+		} else {
+			this.prox.atualizar(produto);
+		}
 	}
 
 	@Override
@@ -71,4 +77,10 @@ public class RepositorioProdutosLista implements RepositorioProdutos {
 		this.prox = prox;
 	}
 	
+	public void TESTALISTA() {
+		if (this.prox != null) {
+			System.out.println(produto.getNome());
+			this.prox.TESTALISTA();
+		}
+	}
 }
