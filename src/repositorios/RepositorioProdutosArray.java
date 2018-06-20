@@ -10,10 +10,10 @@ public class RepositorioProdutosArray implements RepositorioProdutos {
 	private int ultimoIndice;
 	private int tamanho;
 	
-	public RepositorioProdutosArray(int tamanho) {
-		produtos = new Produto[tamanho];
+	public RepositorioProdutosArray() {
+		produtos = new Produto[100];
 		this.ultimoIndice = -1; //não é o tamanho atual, e sim o ultimo indice
-		this.tamanho = tamanho;
+		this.tamanho = 100;
 	}
 	
 	public void inserir(Produto produto) {
@@ -75,7 +75,7 @@ public class RepositorioProdutosArray implements RepositorioProdutos {
 		Produto[] novoArray;
 		
 		this.tamanho *= 2;
-		novoArray = new Produto[tamanho];
+		novoArray = new Produto[this.tamanho + 100];
 		
 		for(int i = 0; i <= this.ultimoIndice; i++) {
 			novoArray[i] = this.produtos[i];
