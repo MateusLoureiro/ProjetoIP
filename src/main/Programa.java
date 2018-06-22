@@ -18,13 +18,14 @@ public class Programa {
 		rep.inserir(new Refeicao("quarto", 30, 40, 3, true));
 		rep.inserir(new Refeicao("quinto", 30, 40, 4, true));
 		try {
-			cadastroProdutos.cadastrarProduto(new Refeicao("sexto", 10, 420, 5, true));
-		} catch (ProdutoJaCadastradoException e) {
+			Produto produto = cadastroProdutos.procurarCadastro(6);//(new Refeicao("sexto", 10, 420, 5, true));
+			System.out.println(produto.getNome());
+		} catch (ProdutoNaoEncontradoException e) {
 			// TODO Auto-generated catch block
-			System.out.println("tem");
+			System.out.println("N TA CADASTRADO");
 		}
 		
-		rep.TESTARARRAY();
+//		rep.TESTARARRAY();
 	}
 	
 }

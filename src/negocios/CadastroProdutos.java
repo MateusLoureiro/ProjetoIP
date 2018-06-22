@@ -12,7 +12,7 @@ public class CadastroProdutos {
 		this.produtos = rep;
 	}
 	
-	public void cadastrarProduto (Produto produto) throws ProdutoJaCadastradoException {
+	public void cadastrar(Produto produto) throws ProdutoJaCadastradoException {
 		try {
 			produtos.procurar(produto.getCodigo());
 			throw new ProdutoJaCadastradoException();
@@ -21,8 +21,16 @@ public class CadastroProdutos {
 		}
 	}
 	
-	public void atualizarCadastroProduto (Produto produto) throws ProdutoNaoEncontradoException {
-		Produto atualizado = produtos.procurar(produto.getCodigo());
-//		atualizado FALTANDO COISA PACARAI
+	public void atualizarCadastro(Produto produto) throws ProdutoNaoEncontradoException {
+//		Produto atualizado = produtos.procurar(produto.getCodigo());
+		produtos.atualizar(produto);
+	}
+	
+	public void removerCadastro(int codigo) throws ProdutoNaoEncontradoException {
+		produtos.remover(codigo);
+	}
+	
+	public Produto procurarCadastro(int codigo) throws ProdutoNaoEncontradoException {
+		return produtos.procurar(codigo);
 	}
 }
