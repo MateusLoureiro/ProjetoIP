@@ -33,4 +33,12 @@ public class CadastroProdutos {
 	public Produto procurarCadastro(int codigo) throws ProdutoNaoEncontradoException {
 		return produtos.procurar(codigo);
 	}
+
+	public RepositorioProdutos getProdutos() {
+		return this.produtos;
+	}
+
+	public void setProdutos(RepositorioProdutos produtos) {
+		this.produtos = produtos;
+	}
 }

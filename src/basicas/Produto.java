@@ -1,31 +1,51 @@
 package basicas;
 
-public abstract class Produto {
+import excecoes.NaoHaEstoqueException;
+
+public class Produto {
 
 	private String nome;
-	private double precoVenda;
-	private double precoCompra;
+	private double preco;
 	private int codigo;
-	private boolean disponibilidade;
+	private int estoque;
+	private Fornecedor fornecedor;
 	
-	public Produto(String nome, double precoCompra, double precoVenda, int codigo, boolean disponibilidade) {
+	public Produto(String nome, double preco, int codigo, int estoque, Fornecedor fornecedor) {
 		this.nome = nome;
-		this.precoCompra = precoCompra;
-		this.precoVenda = precoVenda;
+		this.preco = preco;
 		this.codigo = codigo;
-		this.disponibilidade = disponibilidade;
+		this.estoque = estoque;
+		this.fornecedor = fornecedor;
 	}
 	
-	public abstract void atualizarDisponibilidade(boolean disponibilidade);
+	public void adicionarEstoque(int produtosComprados) {
+		this.estoque += produtosComprados;
+	}
 	
-	public boolean getDisponibilidade() {
-		return this.disponibilidade;
+	public void tirarEstoque(int produtosVendidos) throws NaoHaEstoqueException {
+		if (produtosVendidos <= this.estoque) {
+			this.estoque -= produtosVendidos;
+		} else {
+			throw new NaoHaEstoqueException();
+		}
+	}
+	
+	public Fornecedor getFornecedor() {
+		return this.fornecedor;
 	}
 
-	protected void setDisponibilidade(boolean disponibilidade) {
-		this.disponibilidade = disponibilidade;
+	public void setFornecedor(Fornecedor fornecedor) {
+		this.fornecedor = fornecedor;
 	}
-	
+
+	public int getEstoque() {
+		return this.estoque;
+	}
+
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
+	}
+
 	public String getNome() {
 		return this.nome;
 	}
@@ -34,20 +54,12 @@ public abstract class Produto {
 		this.nome = nome;
 	}
 	
-	public double getPrecoVenda() {
-		return this.precoVenda;
+	public double getPreco() {
+		return this.preco;
 	}
 	
-	public void setPrecoVenda(double precoVenda) {
-		this.precoVenda = precoVenda;
-	}
-	
-	public double getPrecoCompra() {
-		return this.precoCompra;
-	}
-	
-	public void setPrecoCompra(double precoCompra) {
-		this.precoCompra = precoCompra;
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 	
 	public int getCodigo() {
