@@ -46,4 +46,48 @@ public class Restaurante {
 			throw new FuncionarioInvalidoException();
 		}
 	}
+	
+	public void demitirFuncionario(Funcionario funcionario) throws FuncionarioNaoEncontradoException {
+		funcionarios.remover(funcionario.getCodigo());
+	}
+	
+	public void desvincularFornecedor(Fornecedor fornecedor) throws FornecedorNaoEncontradoException {
+		fornecedores.remover(fornecedor.getCodigo());
+	}
+	
+	public void expulsarCliente(Cliente cliente) throws ClienteNaoEncontradoException {
+		clientes.remover(cliente.getCodigo());
+	}
+	
+	public void retirarProduto(Produto produto) throws ProdutoNaoEncontradoException {
+		produtos.removerCadastro(produto.getCodigo());
+	}
+	
+	public void atualizarFornecedor(Fornecedor fornecedor) throws FornecedorNaoEncontradoException {
+		fornecedores.atualizar(fornecedor);
+	}
+	
+	public void atualizarFuncionario(Funcionario func) throws FuncionarioNaoEncontradoException {
+		funcionarios.atualizar(func);
+	}
+	
+	public void atualizarProduto(Produto produto) throws ProdutoNaoEncontradoException {
+		produtos.atualizarCadastro(produto);
+	}
+	
+	public void atualizarCliente(Cliente cliente) throws ClienteNaoEncontradoException {
+		clientes.atualizar(cliente);
+	}
+	
+	public void pedir(Cliente cliente, Produto produto, int numero) throws FuncionarioInvalidoException, ProdutoNaoEncontradoException, NaoHaEstoqueException {
+		try {
+			funcionarios.procurar(cliente.getGarcom().getCodigo());
+			produtos.procurarCadastro(produto.getCodigo());
+			produto.tirarEstoque(numero);
+			produtos.atualizarCadastro(produto);
+		} catch (FuncionarioNaoEncontradoException e) {
+			// TODO Auto-generated catch block
+			throw new FuncionarioInvalidoException();
+		}
+	}
 }

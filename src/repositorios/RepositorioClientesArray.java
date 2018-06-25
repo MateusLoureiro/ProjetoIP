@@ -75,16 +75,4 @@ public class RepositorioClientesArray implements RepositorioClientes {
 		}
 		return false;
 	}
-	
-	public void TESTARARRAY() {
-		
-		int i = 0;
-	
-		while(i < clientes.length ) {
-			if (clientes[i] != null) {
-				System.out.println(clientes[i].getNome());
-			}	
-			i++;
-		}
-	}
 }

@@ -67,11 +67,4 @@ public class RepositorioFornecedoresLista implements RepositorioFornecedores {
 			return false;
 		}
 	}
-	
-	public void TESTALISTA() {
-		if (this.prox != null) {
-			System.out.println(fornecedores.getNome());
-			this.prox.TESTALISTA();
-		}
-	}
 }

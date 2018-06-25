@@ -77,10 +77,4 @@ public class RepositorioProdutosLista implements RepositorioProdutos {
 		this.prox = prox;
 	}
 	
-	public void TESTALISTA() {
-		if (this.prox != null) {
-			System.out.println(produto.getNome());
-			this.prox.TESTALISTA();
-		}
-	}
 }

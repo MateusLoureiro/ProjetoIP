@@ -84,13 +84,4 @@ public class RepositorioProdutosArray implements RepositorioProdutos {
 		this.produtos = novoArray;
 	}
 	
-	public void TESTARARRAY() {
-		
-		if (this.ultimoIndice == -1)
-			System.out.println("TA VAZIO");
-		
-		for (int i = 0; i <= this.ultimoIndice; i++) {
-			System.out.println(produtos[i].getNome());
-		}
-	}
 }

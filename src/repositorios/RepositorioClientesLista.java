@@ -75,11 +75,4 @@ public class RepositorioClientesLista implements RepositorioClientes {
 			return false;
 		}
 	}
-	
-	public void TESTALISTA() {
-		if (this.prox != null) {
-			System.out.println(cliente.getNome());
-			this.prox.TESTALISTA();
-		}
-	}
 }

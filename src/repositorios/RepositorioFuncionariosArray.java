@@ -76,16 +76,4 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 		}
 		return false;
 	}
-	
-	public void TESTARARRAY() {
-	
-		int i = 0;
-	
-		while(i < funcionarios.length ) {
-			if (funcionarios[i] != null) {
-				System.out.println(funcionarios[i].getNome());
-			}	
-			i++;
-		}
-	}
 }

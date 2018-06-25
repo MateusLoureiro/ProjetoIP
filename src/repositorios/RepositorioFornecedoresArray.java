@@ -72,16 +72,4 @@ public class RepositorioFornecedoresArray implements RepositorioFornecedores{
 		}
 		return false;
 	}
-	
-	public void TESTARARRAY() {
-	
-		int i = 0;
-	
-		while(i < fornecedores.length ) {
-			if (fornecedores[i] != null) {
-				System.out.println(fornecedores[i].getNome());
-			}	
-			i++;
-		}
-	}
 }

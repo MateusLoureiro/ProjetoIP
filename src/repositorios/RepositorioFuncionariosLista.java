@@ -75,11 +75,4 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 			return false;
 		}
 	}
-	
-	public void TESTALISTA() {
-		if (this.prox != null) {
-			System.out.println(funcionario.getNome());
-			this.prox.TESTALISTA();
-		}
-	}
 }

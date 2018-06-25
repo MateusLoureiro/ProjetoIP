@@ -53,7 +53,8 @@ public class Programa {
 		Cliente cli1rep = new Cliente("cli1 2.0", "0001", 100, func1);
 		Cliente cli1Inv = new Cliente("cli1", "0006", 100, func6Inv);
 		
-		System.out.println("Colocando valores nos repositórios das classes independentes:");
+		System.out.println("Colocando valores nos repositorios das classes independentes:");
+		System.out.println();
 			
 		try {
 			System.out.println("Classe Funcionarios:");
@@ -78,6 +79,7 @@ public class Programa {
 			System.out.println("Não estamos mais contratando");
 		}
 		
+		System.out.println();
 		try {
 			System.out.println("Classe Fornecedores:");
 			turing.cadastrarFornecedor(forn1);
@@ -100,8 +102,10 @@ public class Programa {
 		} catch (RepositorioFornecedoresCheioException e) {
 			System.out.println("Não estamos mais contratando");
 		}
+		System.out.println();
 		
 		System.out.println("Agora das classes Basicas dependentes:");
+		System.out.println();
 		
 		try {
 			System.out.println("Classe Produto:");
@@ -142,6 +146,7 @@ public class Programa {
 			// TODO Auto-generated catch block
 			System.out.println("Fornecedor invalido.");
 		}
+		System.out.println();
 		
 		try {
 			System.out.println("Classe Cliente:");
@@ -188,7 +193,192 @@ public class Programa {
 		} catch (RepositorioClientesCheioException e) {
 			System.out.println("Ta cheio."); 
 		}
+		System.out.println();
 		
+		try {
+			System.out.println("Demitindo Funcionario existente:");
+			turing.demitirFuncionario(func5);
+			System.out.println("Demitido com sucesso.");
+		} catch (FuncionarioNaoEncontradoException e){
+			System.out.println("Funcionario nao cadastrado.");
+		}
 		
+		try {
+			System.out.println("Demitindo Funcionario nao existente:");
+			turing.demitirFuncionario(func6Inv);
+			System.out.println("Demitido com sucesso.");
+		} catch (FuncionarioNaoEncontradoException e){
+			System.out.println("Funcionario nao cadastrado.");
+		}
+		System.out.println();
+		
+		try {
+			System.out.println("Desvinculando empresa existente:");
+			turing.desvincularFornecedor(forn5);
+			System.out.println("Desvinculada com sucesso.");
+		} catch (FornecedorNaoEncontradoException e) {
+			System.out.println("Empresa nao cadastrada.");
+		}
+		
+		try {
+			System.out.println("Desvinculando empresa existente:");
+			turing.desvincularFornecedor(forn6Inv);
+			System.out.println("Desvinculada com sucesso.");
+		} catch (FornecedorNaoEncontradoException e) {
+			System.out.println("Empresa nao cadastrada.");
+		}
+		System.out.println();
+		
+		try {
+			System.out.println("Expulsando cliente existente:");
+			turing.expulsarCliente(cli5);
+			System.out.println("Cliente expulso com sucesso.");
+		} catch (ClienteNaoEncontradoException e) {
+			System.out.println("Cliente nao cadastrado.");
+		}
+		
+		try {
+			System.out.println("Expulsando cliente nao existente:");
+			turing.expulsarCliente(cli1Inv);
+			System.out.println("Cliente expulso com sucesso.");
+		} catch (ClienteNaoEncontradoException e) {
+			System.out.println("Cliente nao cadastrado.");
+		}
+		System.out.println();
+		
+		try {
+			System.out.println("Retirando produto existente do menu:");
+			turing.retirarProduto(prod5);
+			System.out.println("Produto retirado do menu.");
+		} catch (ProdutoNaoEncontradoException e) {
+			System.out.println("Produto nao cadastrado.");
+		}
+		
+		try {
+			System.out.println("Retirando produto nao existente do menu:");
+			turing.retirarProduto(prod1Inv);
+			System.out.println("Produto retirado do menu.");
+		} catch (ProdutoNaoEncontradoException e) {
+			System.out.println("Produto nao cadastrado.");
+		}
+		System.out.println();
+		
+		try {
+			System.out.println("Atualizando fornecedor existente:");
+			turing.atualizarFornecedor(forn1rep);
+			System.out.println("Fornecedor atualizado com sucesso.");
+		} catch (FornecedorNaoEncontradoException e) {
+			System.out.println("Fornecedor nao cadastrado.");
+		}
+		
+		try {
+			System.out.println("Atualizando fornecedor nao existente:");
+			turing.atualizarFornecedor(forn6Inv);
+			System.out.println("Fornecedor atualizado com sucesso.");
+		} catch (FornecedorNaoEncontradoException e) {
+			System.out.println("Fornecedor nao cadastrado.");
+		}
+		System.out.println();
+		
+		try {
+			System.out.println("Atualizando funcionario existente:");
+			turing.atualizarFuncionario(func1rep);
+			System.out.println("Atualizado com sucesso.");
+		} catch (FuncionarioNaoEncontradoException e) {
+			System.out.println("Funcionario nao cadastrado.");
+		}
+		
+		try {
+			System.out.println("Atualizando funcionario existente:");
+			turing.atualizarFuncionario(func6Inv);
+			System.out.println("Atualizado com sucesso.");
+		} catch (FuncionarioNaoEncontradoException e) {
+			System.out.println("Funcionario nao cadastrado.");
+		}
+		System.out.println();
+		
+		try {
+			System.out.println("Atualizando Produto existente:");
+			turing.atualizarProduto(prod1rep);
+			System.out.println("Produto atualizado com sucesso.");
+		} catch (ProdutoNaoEncontradoException e) {
+			System.out.println("Produto nao cadastrado.");
+		}
+		
+		try {
+			System.out.println("Atualizando Produto existente:");
+			turing.atualizarProduto(prod1Inv);
+			System.out.println("Produto atualizado com sucesso.");
+		} catch (ProdutoNaoEncontradoException e) {
+			System.out.println("Produto nao cadastrado.");
+		}
+		
+		System.out.println();
+		
+		try {
+			System.out.println("Atualizando Cliente existente:");
+			turing.atualizarCliente(cli1rep);
+			System.out.println("Cliente atualizado com sucesso.");
+		} catch (ClienteNaoEncontradoException e) {
+			System.out.println("Cliente nao cadastrado.");
+		}
+		
+		try {
+			System.out.println("Atualizando Cliente existente:");
+			turing.atualizarCliente(cli1Inv);
+			System.out.println("Cliente atualizado com sucesso.");
+		} catch (ClienteNaoEncontradoException e) {
+			System.out.println("Cliente nao cadastrado.");
+		}
+		
+		System.out.println();
+		
+		try {
+			System.out.println("Realizando pedido tudo certo:");
+			turing.pedir(cli4, prod4, 10);
+			System.out.println("Pedido realizado com sucesso");
+		} catch (FuncionarioInvalidoException e) {
+			System.out.println("Cliente pedindo pra um garcom invalido.");
+		} catch (ProdutoNaoEncontradoException e) {
+			System.out.println("Produto nao tem no menu.");
+		} catch (NaoHaEstoqueException e) {
+			System.out.println("Produto sem estoque.");
+		}
+		
+		try {
+			System.out.println("Realizando pedido produto invalido:");
+			turing.pedir(cli4, prod1Inv, 10);
+			System.out.println("Pedido realizado com sucesso");
+		} catch (FuncionarioInvalidoException e) {
+			System.out.println("Cliente pedindo pra um garcom invalido.");
+		} catch (ProdutoNaoEncontradoException e) {
+			System.out.println("Produto nao tem no menu.");
+		} catch (NaoHaEstoqueException e) {
+			System.out.println("Produto sem estoque.");
+		}
+		
+		try {
+			System.out.println("Realizando pedido garcom invalido:");
+			turing.pedir(cli1Inv, prod4, 10);
+			System.out.println("Pedido realizado com sucesso");
+		} catch (FuncionarioInvalidoException e) {
+			System.out.println("Cliente pedindo pra um garcom invalido.");
+		} catch (ProdutoNaoEncontradoException e) {
+			System.out.println("Produto nao tem no menu.");
+		} catch (NaoHaEstoqueException e) {
+			System.out.println("Produto sem estoque.");
+		}
+		
+		try {
+			System.out.println("Realizando pedido sem estoque:");
+			turing.pedir(cli4, prod4, 1000);
+			System.out.println("Pedido realizado com sucesso");
+		} catch (FuncionarioInvalidoException e) {
+			System.out.println("Cliente pedindo pra um garcom invalido.");
+		} catch (ProdutoNaoEncontradoException e) {
+			System.out.println("Produto nao tem no menu.");
+		} catch (NaoHaEstoqueException e) {
+			System.out.println("Produto sem estoque.");
+		}
 	}	
 }

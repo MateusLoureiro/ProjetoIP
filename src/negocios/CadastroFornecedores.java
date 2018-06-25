@@ -14,9 +14,9 @@ public class CadastroFornecedores {
 		this.fornecedores = rep;
 	}
 
-	public void inserir(Fornecedor cliente) throws FornecedorJaCadastradoException, RepositorioFornecedoresCheioException {
-		if (!(this.fornecedores.existe(cliente.getCodigo()))) {
-			this.fornecedores.inserir(cliente);
+	public void inserir(Fornecedor fornecedor) throws FornecedorJaCadastradoException, RepositorioFornecedoresCheioException {
+		if (!(this.fornecedores.existe(fornecedor.getCodigo()))) {
+			this.fornecedores.inserir(fornecedor);
 		} else {
 			throw new FornecedorJaCadastradoException();
 		}
@@ -26,19 +26,19 @@ public class CadastroFornecedores {
 		return fornecedores.procurar(cnpj);
 	}
 	
-	public void atualizar(Fornecedor cliente) throws FornecedorNaoEncontradoException {
-		this.fornecedores.atualizar(cliente);
+	public void atualizar(Fornecedor fornecedor) throws FornecedorNaoEncontradoException {
+		this.fornecedores.atualizar(fornecedor);
 	}
 	
 	public void remover(String cnpj) throws FornecedorNaoEncontradoException{
 		this.fornecedores.remover(cnpj);
 	}
 
-	public RepositorioFornecedores getClientes() {
+	public RepositorioFornecedores getFornecedores() {
 		return this.fornecedores;
 	}
 
-	public void setClientes(RepositorioFornecedores clientes) {
-		this.fornecedores = clientes;
+	public void setFornecedores(RepositorioFornecedores fornecedor) {
+		this.fornecedores = fornecedor;
 	}
 }
